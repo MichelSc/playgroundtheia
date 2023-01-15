@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 import { CancellationToken } from '@theia/core/lib/common';
-import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
+//import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { QuickAccessContribution, QuickAccessProvider, QuickAccessRegistry } from '@theia/core/lib/browser/quick-input/quick-access';
 import { QuickPickItem, QuickPicks } from '@theia/core/lib/browser/quick-input/quick-input-service';
 import { ILogger } from '@theia/core/lib/common';
@@ -22,9 +22,6 @@ export class QuickSelectService implements QuickAccessContribution, QuickAccessP
 
     @inject(QuickAccessRegistry)
     protected readonly quickAccessRegistry: QuickAccessRegistry;
-
-    @inject(ContextKeyService)
-    protected readonly contextKexService: ContextKeyService;
 
     @inject(ILogger)
     protected readonly logger: ILogger;
