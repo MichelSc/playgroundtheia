@@ -42,12 +42,12 @@ export class QuickSelectService implements QuickAccessContribution, QuickAccessP
     getPicks(filter: string, token: CancellationToken): QuickPicks {
         return REPOSITORIES.map(repo_string => { 
             return {
-                    label: repo_string,
-                    execute: () => {
-                        const message = `Quick select invoked with repo ${repo_string}`;
-                        this.messageService.info(message);
-                        this.logger.info(message)
-                    }
+                label: repo_string,
+                execute: () => {
+                    const message = `Quick select invoked with repo ${repo_string}`;
+                    this.messageService.info(message);
+                    this.logger.info(message)
+                }
             }
         });
     }
