@@ -15,17 +15,9 @@ export class MichelExtensionCommandContribution implements CommandContribution {
     @inject(QuickInputService) @optional()
     protected readonly quickInputService: QuickInputService;
 
-    constructor(
-        @inject(MessageService) private readonly messageService: MessageService,
-    ) { }
-
     registerCommands(registry: CommandRegistry): void {
         registry.registerCommand(MichelExtensionCommand, {
             execute: () => {
-                // first task
-                const message = `message from michel: arg1`;
-                this.messageService.info(message);
-                // second task
                 this.quickInputService?.open(QuickSelectService.PREFIX)
             }
         });

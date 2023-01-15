@@ -4,6 +4,7 @@ import { CancellationToken } from '@theia/core/lib/common';
 import { QuickAccessContribution, QuickAccessProvider, QuickAccessRegistry } from '@theia/core/lib/browser/quick-input/quick-access';
 import { QuickPickItem, QuickPicks } from '@theia/core/lib/browser/quick-input/quick-input-service';
 import { ILogger } from '@theia/core/lib/common';
+import { MessageService } from '@theia/core'
 
 //import { filterItems, QuickPickItem, QuickPicks } from '@theia/core/lib/browser/quick-input/quick-input-service';
 //import { CancellationToken, Disposable } from '@theia/core/lib/common';
@@ -26,6 +27,9 @@ export class QuickSelectService implements QuickAccessContribution, QuickAccessP
     @inject(ILogger)
     protected readonly logger: ILogger;
 
+    @inject(MessageService) 
+    private readonly messageService: MessageService,
+ 
     registerQuickAccessProvider(): void {
         this.quickAccessRegistry.registerQuickAccessProvider({
             getInstance: () => this,
@@ -40,7 +44,9 @@ export class QuickSelectService implements QuickAccessContribution, QuickAccessP
             return {
                     label: repo_string,
                     execute: () => {
-                        this.logger.info(`Quick select invoked with repo ${repo_string}`)
+                        const message = `Quick select invoked with repo ${repo_string}`;
+                        this.messageService.info(message);
+                        this.logger.info(message)
                     }
             }
         });
