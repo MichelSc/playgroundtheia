@@ -1,5 +1,5 @@
 import { injectable, inject, optional } from '@theia/core/shared/inversify';
-import { Command, CommandContribution, CommandRegistry, MenuContribution, MenuModelRegistry, MessageService } from '@theia/core/lib/common';
+import { Command, CommandContribution, CommandRegistry, MenuContribution, MenuModelRegistry } from '@theia/core/lib/common';
 import { CommonMenus } from '@theia/core/lib/browser';
 import { QuickInputService } from '@theia/core/lib/browser/quick-input';
 import { QuickSelectService } from './quick-select-service';

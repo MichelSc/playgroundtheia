@@ -28,7 +28,7 @@ export class QuickSelectService implements QuickAccessContribution, QuickAccessP
     protected readonly logger: ILogger;
 
     @inject(MessageService) 
-    private readonly messageService: MessageService,
+    private readonly messageService: MessageService;
  
     registerQuickAccessProvider(): void {
         this.quickAccessRegistry.registerQuickAccessProvider({
