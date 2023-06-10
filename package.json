@@ -17,6 +17,6 @@
     "lerna": "2.4.0"
   },
   "workspaces": [
-    "michel-extension", "browser-app", "electron-app"
+    "michel-extension", "browser-app", "electron-app", "michel-sparql"
   ]
 }
