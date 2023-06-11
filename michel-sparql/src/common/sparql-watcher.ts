@@ -21,7 +21,6 @@ export class SparqlExecutorWatcher {
         return this.onSomethingChangedEmitter.event;
     }
 
-    // FIXME: get rid of it, backend services should as well set a client on the server
     fireSomethingChanged(event: string): void {
         this.onSomethingChangedEmitter.fire(event);
     }

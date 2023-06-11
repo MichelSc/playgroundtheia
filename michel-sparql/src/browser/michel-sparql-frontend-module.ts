@@ -19,6 +19,8 @@ export default new ContainerModule(bind => {
 
     bind(SparqlExecutorWatcher).toSelf().inSingletonScope();
 
+    // note that ISparqlExecutorServer is bound to the proxy object, and not to the ISparqlExecutorServer implementation
+    // this proxt will be used by the SparqlExecutor object when instantiated on the frontend
     bind(ISparqlExecutorServer).toDynamicValue(ctx => {
         const watcher = ctx.container.get(SparqlExecutorWatcher);
         const connection = ctx.container.get(WebSocketConnectionProvider);
