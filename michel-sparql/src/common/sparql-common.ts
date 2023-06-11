@@ -9,9 +9,9 @@ export interface ISparqlExecutor {
 @injectable()
 export class SparqlExecutor implements ISparqlExecutor {
 
-    // SparqlExecutor works on the frontend and on the backedn
-    // on the frontend, server will be a proxy object
-    // on the backend, server will be the actual server
+    // SparqlExecutor works on the frontend and on the backend
+    // on the frontend, this.server will be a proxy object
+    // on the backend, this.server will be the actual server
     @inject(ISparqlExecutorServer) protected readonly server: ISparqlExecutorServer;
  
     executeSelect(repo: any, query: string): Promise<string | undefined> {

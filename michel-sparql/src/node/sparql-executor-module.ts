@@ -1,4 +1,4 @@
-import { ContainerModule } from 'inversify';
+import { ContainerModule } from '@theia/core/shared/inversify';
 import { ConnectionHandler, JsonRpcConnectionHandler } from '@theia/core/lib/common/messaging';
 import { ISparqlExecutorServer, ISparqlExecutorClient, SparqlExecutorPath } from '../common/sparql-protocol';
 import { GraphDBSparqlExecutorServer} from './sparql-executor-server';
