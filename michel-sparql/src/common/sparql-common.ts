@@ -1,10 +1,5 @@
 import { injectable, inject } from '@theia/core/shared/inversify';
 import { ISparqlExecutorServer} from './sparql-protocol';
-// import { SparqlExecutorWatcher} from './sparql-watcher';
-
-// export const SparqlExecutorFactory = Symbol('SparqlExecutorFactory');
-// export type SparqlExecutorFactory = (name: string) => ISparqlExecutor;
-
 
 export const ISparqlExecutor = Symbol('ISparqlExecutor');
 export interface ISparqlExecutor {
@@ -14,9 +9,10 @@ export interface ISparqlExecutor {
 @injectable()
 export class SparqlExecutor implements ISparqlExecutor {
 
+    // SparqlExecutor works on the frontend and on the backedn
+    // on the frontend, server will be a proxy object
+    // on the backend, server will be the actual server
     @inject(ISparqlExecutorServer) protected readonly server: ISparqlExecutorServer;
-    // @inject(SparqlExecutorWatcher) protected readonly watcher: SparqlExecutorWatcher;
-    // @inject(SparqlExecutorFactory) protected readonly factory: SparqlExecutorFactory;
  
     executeSelect(repo: any, query: string): Promise<string | undefined> {
         return this.server.executeSelect(repo, query);
