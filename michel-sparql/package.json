@@ -23,7 +23,8 @@
   },
   "theiaExtensions": [
     {
-      "frontend": "lib/browser/michel-sparql-frontend-module"
+      "frontend": "lib/browser/michel-sparql-frontend-module",
+      "backend": "lib/node/sparql-executor-module"
     }
   ]
 }

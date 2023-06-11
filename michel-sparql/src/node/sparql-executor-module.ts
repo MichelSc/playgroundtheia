@@ -3,7 +3,7 @@ import { ConnectionHandler, JsonRpcConnectionHandler } from '@theia/core/lib/com
 import { ISparqlExecutorServer, ISparqlExecutorClient, SparqlExecutorPath } from '../common/sparql-protocol';
 import { GraphDBSparqlExecutorServer} from './sparql-executor-server';
 
-export const loggerServerModule = new ContainerModule(bind => {
+export default new ContainerModule(bind => {
     bind<ISparqlExecutorServer>(ISparqlExecutorServer).to(GraphDBSparqlExecutorServer).inSingletonScope();
     bind(ConnectionHandler).toDynamicValue(ctx =>
         new JsonRpcConnectionHandler<ISparqlExecutorClient>(SparqlExecutorPath, client => {
