@@ -14,7 +14,7 @@ export class GraphDBSparqlExecutorServer implements ISparqlExecutorServer {
     protected init(): void {
     }
 
-    async setSomtehtingChanged(event: string): Promise<void> {
+    fireSomethingChanged(event: string): void {
         // for firing notifications to the frontend, if some client
         if (this.client !== undefined) {
             this.client.onSomethingChanged(event);
@@ -24,7 +24,7 @@ export class GraphDBSparqlExecutorServer implements ISparqlExecutorServer {
     }
 
     executeSelect(repo: any, query: string):Promise<string | undefined> {
-        this.setSomtehtingChanged("query started");
+        this.fireSomethingChanged("query started");
         return Promise.resolve("query result");
     }
 
