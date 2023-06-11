@@ -18,7 +18,13 @@ export class MichelSparqlCommandContribution implements CommandContribution {
         registry.registerCommand(MichelSparqlCommand, {
             execute: () => {
                 this.logger.info('command Say sparql called');
-                this.sparqlExecutor.executeSelect("jj", "kk")
+                this.sparqlExecutor.executeSelect("my repo", "my query")
+                .then(r=> {
+                    this.logger.info(`sparql response ${r}`);
+                })
+                .catch(e=>{
+                    this.logger.error(`sparql erro ${e}`);
+                })
             }
         });
     }
