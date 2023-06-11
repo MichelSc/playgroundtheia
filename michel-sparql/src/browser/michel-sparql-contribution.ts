@@ -1,6 +1,7 @@
 import { injectable, inject } from '@theia/core/shared/inversify';
 import { Command, CommandContribution, CommandRegistry, MenuContribution, MenuModelRegistry, ILogger } from '@theia/core/lib/common';
 import { CommonMenus } from '@theia/core/lib/browser';
+import { ISparqlExecutor } from '../common/sparql-common';
 
 export const MichelSparqlCommand: Command = {
     id: 'MichelSparql.command',
@@ -11,11 +12,13 @@ export const MichelSparqlCommand: Command = {
 export class MichelSparqlCommandContribution implements CommandContribution {
 
     @inject(ILogger) protected logger: ILogger;
+    @inject(ISparqlExecutor) protected sparqlExecutor: ISparqlExecutor;
 
     registerCommands(registry: CommandRegistry): void {
         registry.registerCommand(MichelSparqlCommand, {
             execute: () => {
                 this.logger.info('command Say sparql called');
+                this.sparqlExecutor.executeSelect("jj", "kk")
             }
         });
     }
